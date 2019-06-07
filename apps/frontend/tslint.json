@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "lovelyJwtSecurity", "camelCase"],
+    "component-selector": [true, "element", "lovely-jwt-security", "kebab-case"]
+  }
+}
