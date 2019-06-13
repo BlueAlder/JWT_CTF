@@ -1,0 +1,28 @@
+<nz-row nzType="flex" nzJustify="space-between">
+  <nz-col [nzSpan]="12">
+    <h1>Welcome Home {{user_details.username}}</h1>
+  </nz-col>
+
+  <nz-col [nzSpan]="4" style="text-align: right">
+    <button nz-button nzType="danger" routerLink="/login">Sign out</button>
+  </nz-col>
+
+</nz-row>
+
+<nz-row nzType="flex" nzJustify="center">
+  <nz-col [nzSpan]="6" >
+    <p *ngIf="!user_details.admin">Unfortunately you do not have the ADMIN PRIVILLEGES to ATTAIN the POWER to hit the below button meso soup :(</p>
+    <div *ngIf="user_details.admin">
+      <p >Why hello there admin, looking mighty fine there I must say hehe. Anyway as MR. client I really like how you are admin, not sure what MR. server will have to say about it though :/ Here is MR. Clients flag </p>
+      {{client_flag}}
+    </div>
+
+    <button nz-button nzType="primary" [disabled]="!user_details.admin" nzBlock (click)="getFlag()">Please click me to retrieve the flag</button>
+
+    <h4 *ngIf="!fake_admin">Your flag is: {{flag}}</h4>
+    <div *ngIf="fake_admin">
+      <h1>ALERT ALERT FAKE ADMIN DETECTED ALERT ALERT GET THEM OUTTA HERE ALERT ALERT ALERT ALERT</h1>
+      <h2>good bye fake admin </h2>
+    </div>
+  </nz-col>
+</nz-row>

@@ -1,5 +1,10 @@
 // wjyaZy5yMRfuBXSX4mqQdYze
 
-export const USERS = [
-    { username: 'admin', hash: '$2b$10$DUGCduWZIwEBL7W9llXdZe111PSCWRbS.CXhMKAmnnaORC9o91j26'}
-]
+import { User, UserDto } from '@lovely-jwt-security/authentication';
+
+const adminCreds: UserDto = {
+  username: 'admin',
+  password: 'wjyaZy5yMRfuBXSX4mqQdYze'
+};
+
+export const USERS: User[] = [new User(adminCreds, true)];

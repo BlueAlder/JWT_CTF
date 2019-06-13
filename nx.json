@@ -16,6 +16,9 @@
     },
     "backend": {
       "tags": []
+    },
+    "authentication": {
+      "tags": []
     }
   }
 }
