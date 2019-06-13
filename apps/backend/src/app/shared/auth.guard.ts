@@ -21,10 +21,11 @@ export class AuthGuard implements CanActivate {
     const token = auth.split(' ')[1];
     try {
       const secret_index = JSON.parse(Buffer.from(token.split(".")[1], 'base64').toString()).secret_num;
-      console.log(secret_index);
+      if (secret_index === undefined || secret_index >= User.random_secrets.length || secret_index < 0) {
+        throw new Error('Invalid secret index what u tryna do?');
+      }
 
       const secret = User.random_secrets[secret_index];
-      console.log(secret);
 
       const decoded = jwt.verify(token, secret);
       return decoded;

@@ -13,7 +13,7 @@ export class AuthenticationService {
   }
 
   login(user: UserDto) {
-    return this.http.post<any>('http://localhost:3333/api/user/login', user)
+    return this.http.post<any>('/api/user/login', user)
       .pipe(map(userRes => {
         if (userRes && userRes.token) {
           localStorage.setItem('currentUser', JSON.stringify(userRes));
@@ -24,11 +24,11 @@ export class AuthenticationService {
   }
 
   register(user: UserDto) {
-    return this.http.post<any>('http://localhost:3333/api/user/register', user);
+    return this.http.post<any>('/api/user/register', user);
   }
 
   getUsers() {
-    return this.http.get<ListUserRO>('http://localhost:3333/api/user');
+    return this.http.get<ListUserRO>('/api/user');
   }
 
   logout() {

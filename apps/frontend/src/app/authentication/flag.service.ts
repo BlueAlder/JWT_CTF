@@ -9,6 +9,6 @@ export class FlagService {
   constructor(private http: HttpClient) { }
 
   getFlag() {
-    return this.http.get<any>('http://localhost:3333/api/flag');
+    return this.http.get<any>('/api/flag');
   }
 }

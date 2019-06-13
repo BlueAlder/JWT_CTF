@@ -5,7 +5,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "run-s build:backend build:frontend",
+    "build:backend": "ng build backend",
+    "build:frontend": "ng build frontend",
+    "build:docker": "run-s docker:build-backend docker:build-frontend",
     "test": "ng test",
     "lint": "nx lint && ng lint",
     "e2e": "ng e2e",
@@ -24,7 +27,9 @@
     "update:check": "ng update",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "docker:build-backend": "docker image build -t backend -f api.Dockerfile .",
+    "docker:build-frontend": "docker image build -t frontend -f frontend.Dockerfile ."
   },
   "private": true,
   "dependencies": {
