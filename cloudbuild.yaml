@@ -9,4 +9,4 @@ steps:
     entrypoint: npm
     args: ['run', 'build:frontend']
   - name: 'gcr.io/$PROJECT_ID/docker-compose'
-    args: ['up']
+    args: ['build']

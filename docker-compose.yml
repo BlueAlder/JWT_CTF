@@ -5,7 +5,7 @@ services:
       dockerfile: api.Dockerfile
       context: .
     container_name: backend
-    image: backend
+    image: gcr.io/ctfd-233822/backend
     networks:
       - jwt
   frontend:
@@ -13,7 +13,7 @@ services:
       dockerfile: frontend.Dockerfile
       context: .
     container_name: frontend
-    image: frontend
+    image: gcr.io/ctfd-233822/frontend
     ports:
       - 8080:80
     networks:
