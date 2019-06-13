@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserRO } from '@lovely-jwt-security/authentication';
+import { ListUserRO, User, UserRO } from '@lovely-jwt-security/authentication';
 import { FlagService } from '../authentication/flag.service';
 import { NzMessageService } from 'ng-zorro-antd';
+import { AuthenticationService } from '../authentication/authentication.service';
 
 @Component({
   selector: 'lovely-jwt-security-home',
@@ -13,12 +14,16 @@ export class HomeComponent implements OnInit {
   flag: string;
   fake_admin = false;
 
-  client_flag = 'FLAG{n0w_th3_r341_ch4113nge_b3g1ns}';
+  users: ListUserRO;
+
+  client_flag = atob('RkxBR3tuMHdfdGgzX3IzNDFfY2g0MTEzbmdlX2IzZzFuc30=');
 
   constructor(private flagService: FlagService,
-              private message: NzMessageService) { }
+              private message: NzMessageService,
+              private authService: AuthenticationService) { }
 
   ngOnInit() {
+    this.getUsers();
   }
 
   getFlag() {
@@ -32,5 +37,13 @@ export class HomeComponent implements OnInit {
           this.fake_admin = true;
           this.message.error(err.error.message);
         })
+  }
+
+  getUsers() {
+    this.authService.getUsers()
+      .subscribe(res => {
+        this.message.success('Updated list of registered users');
+        return this.users = res;
+      })
   }
 }

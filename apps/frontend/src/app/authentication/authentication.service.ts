@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserDto } from '@lovely-jwt-security/authentication';
+import { ListUserRO, User, UserDto } from '@lovely-jwt-security/authentication';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -25,6 +25,10 @@ export class AuthenticationService {
 
   register(user: UserDto) {
     return this.http.post<any>('http://localhost:3333/api/user/register', user);
+  }
+
+  getUsers() {
+    return this.http.get<ListUserRO>('http://localhost:3333/api/user');
   }
 
   logout() {

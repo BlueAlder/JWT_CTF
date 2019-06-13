@@ -1,7 +1,7 @@
 import * as bcrypt from 'bcryptjs'
 import * as jwt from 'jsonwebtoken'
 import { IsNotEmpty } from 'class-validator';
-import {generate_random_string_array} from './utilities';
+import { generate_random_string_array } from '@lovely-jwt-security/utilities';
 
 export class User {
     static readonly  random_secrets = generate_random_string_array(1000, 50);
@@ -51,5 +51,10 @@ export class UserRO {
   username: string;
   admin: boolean;
   token: string;
+}
+
+export class ListUserRO {
+  users: User[];
+  check_apis_pls: string;
 }
 

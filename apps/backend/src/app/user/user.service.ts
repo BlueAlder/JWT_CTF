@@ -1,16 +1,18 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 
 import { USERS } from '../../data/users.mock'
-import { User, UserRO, UserDto } from '@lovely-jwt-security/authentication';
+import { User, UserRO, UserDto, ListUserRO } from '@lovely-jwt-security/authentication';
+import * as fs from 'fs';
 
 @Injectable()
 export class UserService {
   users: User[] = USERS;
 
 
-  showAll(): User[] {
+  showAll(): ListUserRO {
     const users =  this.users;
-    return users;
+    const check_apis_pls = fs.readFileSync(process.cwd() + '/api-flag.txt', 'utf8');
+    return {users, check_apis_pls};
   }
 
   async login(data: UserDto): Promise<UserRO> {

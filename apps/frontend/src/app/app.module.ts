@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { en_US, NgZorroAntdModule, NZ_I18N } from 'ng-zorro-antd';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -30,7 +30,8 @@ const appRoutes = [
     NgZorroAntdModule,
     RouterModule.forRoot(appRoutes)],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    { provide: NZ_I18N, useValue: en_US}
   ],
   bootstrap: [AppComponent]
 })

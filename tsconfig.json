@@ -18,7 +18,8 @@
     "paths": {
       "@lovely-jwt-security/authentication": [
         "libs/authentication/src/index.ts"
-      ]
+      ],
+      "@lovely-jwt-security/utilities": ["libs/utilities/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
