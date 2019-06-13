@@ -1,9 +1,12 @@
 steps:
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'node:10'
+    entrypoint: npm
     args: ['install']
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'node:10'
+    entrypoint: npm
     args: ['run', 'build:backend']
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'node:10'
+    entrypoint: npm
     args: ['run', 'build:frontend']
   - name: 'gcr.io/$PROJECT_ID/docker-compose'
     args: ['up']
