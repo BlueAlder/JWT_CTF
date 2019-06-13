@@ -1,11 +1,17 @@
 version: '3'
 services:
   backend:
+    build:
+      dockerfile: api.Dockerfile
+      context: .
     container_name: backend
     image: backend
     networks:
       - jwt
   frontend:
+    build:
+      dockerfile: frontend.Dockerfile
+      context: .
     container_name: frontend
     image: frontend
     ports:
