@@ -11,6 +11,7 @@ WORKDIR /app/backend
 COPY dist/apps/backend .
 RUN echo "FLAG{d1d_U_g3t_th15_5tra1ght_Aw4y_0r_d1d_U_g3t_stUck_L0l}" > api-flag.txt && echo "FLAG{jay_d0ubl3_y0u_t33_XD_LOL}" > flag.txt
 
+ENV PORT 80
 EXPOSE 3333
 
 CMD ["node", "main.js"]
