@@ -8,5 +8,22 @@ steps:
   - name: 'node:10'
     entrypoint: npm
     args: ['run', 'build:frontend']
-  - name: 'gcr.io/$PROJECT_ID/docker-compose'
-    args: ['build']
+
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '--tag=gcr.io/$PROJECT_ID/backend'
+      - '--file=api.Dockerfile'
+      - '.'
+      -
+  - name: 'gcr.io/cloud-builders/docker'
+      args:
+        - 'build'
+        - '--tag=gcr.io/$PROJECT_ID/frontend'
+        - '--file=frontend.Dockerfile'
+        - '.'
+        -
+images:
+  - 'gcr.io/$PROJECT_ID/backend'
+  - 'gcr.io/$PROJECT_ID/frontend'

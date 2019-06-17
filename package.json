@@ -28,8 +28,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "docker:build-backend": "docker image build -t backend -f api.Dockerfile .",
-    "docker:build-frontend": "docker image build -t frontend -f frontend.Dockerfile ."
+    "docker:build-backend": "docker image build -t gcr.io/ctfd-233822/backend -f api.Dockerfile .",
+    "docker:build-frontend": "docker image build -t gcr.io/ctfd-233822/frontend -f frontend.Dockerfile ."
   },
   "private": true,
   "dependencies": {

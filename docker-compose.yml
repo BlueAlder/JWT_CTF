@@ -1,17 +1,17 @@
 version: '3'
 services:
   backend:
-    build:
-      dockerfile: api.Dockerfile
-      context: .
+#    build:
+#      dockerfile: api.Dockerfile
+#      context: .
     container_name: backend
     image: gcr.io/ctfd-233822/backend
     networks:
       - jwt
   frontend:
-    build:
-      dockerfile: frontend.Dockerfile
-      context: .
+#    build:
+#      dockerfile: frontend.Dockerfile
+#      context: .
     container_name: frontend
     image: gcr.io/ctfd-233822/frontend
     ports:
