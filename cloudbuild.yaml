@@ -4,10 +4,10 @@ steps:
     args: ['install']
   - name: 'node:10'
     entrypoint: npm
-    args: ['run', 'build:backend']
-  - name: 'node:10'
-    entrypoint: npm
-    args: ['run', 'build:frontend']
+    args: ['run', 'affected:build']
+#  - name: 'node:10'
+#    entrypoint: npm
+#    args: ['run', 'build:frontend']
 
 
   - name: 'gcr.io/cloud-builders/docker'
