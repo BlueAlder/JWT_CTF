@@ -2,7 +2,7 @@ version: '3'
 services:
   backend:
 #    build:
-#      dockerfile: api.Dockerfile
+#      dockerfile: backend.Dockerfile
 #      context: .
     container_name: backend
     image: gcr.io/ctfd-233822/backend

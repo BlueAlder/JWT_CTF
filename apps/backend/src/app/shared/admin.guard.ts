@@ -12,7 +12,7 @@ export class AdminAuthGuard extends AuthGuard {
 
     const decoded = await super.validateToken(request.headers.authorization);
     if (decoded.admin === false) {
-      throw new HttpException('No admin privilleges', HttpStatus.FORBIDDEN)
+      throw new HttpException('No admin privileges', HttpStatus.FORBIDDEN)
     }
 
 

@@ -4,28 +4,31 @@ steps:
     args: ['install']
   - name: 'node:10'
     entrypoint: npm
-    args: ['run', 'affected:build']
+    args: ['run', 'affected:build', '--', '--base=origin/master~1', '--head=origin/master']
 #  - name: 'node:10'
 #    entrypoint: npm
 #    args: ['run', 'build:frontend']
 
 
   - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: ./ci.sh
     args:
-      - 'build'
-      - '--tag=gcr.io/$PROJECT_ID/backend'
-      - '--file=api.Dockerfile'
-      - '--cache-from'
-      - 'gcr.io/$PROJECT_ID/backend:latest'
-      - '.'
-  - name: 'gcr.io/cloud-builders/docker'
-    args:
-      - 'build'
-      - '--tag=gcr.io/$PROJECT_ID/frontend'
-      - '--file=frontend.Dockerfile'
-      - '--cache-from'
-      - 'gcr.io/$PROJECT_ID/frontend:latest'
-      - '.'
+      - '$PROJECT_ID'
+#    args:
+#      - 'build'
+#      - '--tag=gcr.io/$PROJECT_ID/backend'
+#      - '--file=backend.Dockerfile'
+#      - '--cache-from'
+#      - 'gcr.io/$PROJECT_ID/backend:latest'
+#      - '.'
+#  - name: 'gcr.io/cloud-builders/docker'
+#    args:
+#      - 'build'
+#      - '--tag=gcr.io/$PROJECT_ID/frontend'
+#      - '--file=frontend.Dockerfile'
+#      - '--cache-from'
+#      - 'gcr.io/$PROJECT_ID/frontend:latest'
+#      - '.'
 images:
   - 'gcr.io/$PROJECT_ID/backend'
   - 'gcr.io/$PROJECT_ID/frontend'
