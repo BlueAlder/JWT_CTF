@@ -14,4 +14,4 @@ RUN echo "FLAG{d1d_U_g3t_th15_5tra1ght_Aw4y_0r_d1d_U_g3t_stUck_L0l}" > api-flag.
 ENV PORT 3333
 ENV HOST 0.0.0.0
 
-CMD ["node", "main.js"]
+CMD node main.js
