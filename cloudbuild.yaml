@@ -16,7 +16,7 @@ steps:
       - '--tag=gcr.io/$PROJECT_ID/backend'
       - '--file=api.Dockerfile'
       - '--cache-from'
-      - 'gcr.io/$PROJECT_ID/frontend:latest',
+      - 'gcr.io/$PROJECT_ID/frontend:latest'
       - '.'
   - name: 'gcr.io/cloud-builders/docker'
     args:
@@ -24,7 +24,7 @@ steps:
       - '--tag=gcr.io/$PROJECT_ID/frontend'
       - '--file=frontend.Dockerfile'
       - '--cache-from'
-      - 'gcr.io/$PROJECT_ID/frontend:latest',
+      - 'gcr.io/$PROJECT_ID/frontend:latest'
       - '.'
 images:
   - 'gcr.io/$PROJECT_ID/backend'
