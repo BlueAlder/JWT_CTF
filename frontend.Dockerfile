@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
 COPY nginx.conf /etc/nginx/nginx.conf
-ENV PORT 80
+#ENV PORT 80
 
 EXPOSE 80
 
