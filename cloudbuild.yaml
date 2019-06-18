@@ -14,10 +14,14 @@ steps:
     entrypoint: ./ci.sh
     args:
       - '$PROJECT_ID'
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: ./cd.sh
+    args:
+      - '$PROJECT_ID'
 #    args:
 #      - 'build'
 #      - '--tag=gcr.io/$PROJECT_ID/backend'
-#      - '--file=backend.Dockerfile'
+#      - '--file=Dockerfile'
 #      - '--cache-from'
 #      - 'gcr.io/$PROJECT_ID/backend:latest'
 #      - '.'
@@ -25,10 +29,8 @@ steps:
 #    args:
 #      - 'build'
 #      - '--tag=gcr.io/$PROJECT_ID/frontend'
-#      - '--file=frontend.Dockerfile'
+#      - '--file=Dockerfile'
 #      - '--cache-from'
 #      - 'gcr.io/$PROJECT_ID/frontend:latest'
 #      - '.'
-images:
-  - 'gcr.io/$PROJECT_ID/backend'
-  - 'gcr.io/$PROJECT_ID/frontend'
+

@@ -2,7 +2,7 @@ version: '3'
 services:
   backend:
 #    build:
-#      dockerfile: backend.Dockerfile
+#      dockerfile: Dockerfile
 #      context: .
     container_name: backend
     image: gcr.io/ctfd-233822/backend
@@ -10,7 +10,7 @@ services:
       - jwt
   frontend:
 #    build:
-#      dockerfile: frontend.Dockerfile
+#      dockerfile: Dockerfile
 #      context: .
     container_name: frontend
     image: gcr.io/ctfd-233822/frontend
