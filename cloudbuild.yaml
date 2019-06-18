@@ -1,4 +1,6 @@
 steps:
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['checkout', 'master']
   - name: 'node:10'
     entrypoint: npm
     args: ['install']
