@@ -1,12 +1,12 @@
 steps:
   - name: 'gcr.io/cloud-builders/git'
-    args: ['pull']
+    args: ['branch', '--set-upstream-to=origin/master', 'master']
   - name: 'node:10'
     entrypoint: npm
     args: ['install']
   - name: 'node:10'
     entrypoint: npm
-    args: ['run', 'affected:build', '--', '--base=$SHORT_SHA~1', '--head=$SHORT_SHA']
+    args: ['run', 'affected:build', '--', '--base=origin/master~1', '--head=origin/master']
 #  - name: 'node:10'
 #    entrypoint: npm
 #    args: ['run', 'build:frontend']
